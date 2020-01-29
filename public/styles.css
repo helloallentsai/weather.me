@@ -1,0 +1,9 @@
+#app {
+  margin-top: 6vh;
+}
+
+.forecast {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

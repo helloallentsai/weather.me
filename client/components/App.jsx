@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Nav from './Nav';
 import Day from './Day';
-import FiveDays from './FiveDays';
+import Forecast from './Forecast';
 import axios from 'axios';
+import example from './example.forecast.json';
 
 const App = () => {
   const fetch = () => {
@@ -10,16 +12,21 @@ const App = () => {
       .get(
         `http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&APPID=30004a7a2eac9fc48d41cfb1e6d5a5a2`
       )
-      .then(data => setData(data.data));
+      .then(res => setDay(res.data));
+
+    axios
+      .get(
+        `http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&units=imperial&APPID=30004a7a2eac9fc48d41cfb1e6d5a5a2`
+      )
+      .then(res => setForecast(res.data.list));
   };
 
   // useEffect(() => {
   //   fetch();
-  // }, []);
+  // }, [zip]);
 
   const [zip, setZip] = useState(91006);
-
-  const [data, setData] = useState({
+  const [day, setDay] = useState({
     coord: { lon: -122.09, lat: 37.39 },
     weather: [
       { id: 500, main: 'Rain', description: 'light rain', icon: '10d' }
@@ -48,11 +55,23 @@ const App = () => {
     name: 'Mountain View',
     cod: 200
   });
+  const [forecast, setForecast] = useState(example.list);
 
   return (
-    <React.Fragment>
-      <Day data={data} />
-    </React.Fragment>
+    <Router>
+      <div className="container">
+        <Nav />
+
+        <Switch>
+          <Route path="/" exact>
+            <Day day={day} />
+          </Route>
+          <Route path="/forecast">
+            <Forecast forecast={forecast} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
