@@ -1,4 +1,5 @@
 import React from 'react';
+import ForecastCard from './ForecastCard';
 
 const Forecast = ({ forecast }) => {
   let week = {};
@@ -31,30 +32,6 @@ const Forecast = ({ forecast }) => {
       {days.map((day, idx) => (
         <ForecastCard key={idx} day={day[0]} hours={day[1]} />
       ))}
-    </div>
-  );
-};
-
-const ForecastCard = props => {
-  const { day } = props;
-  const hours = props.hours.map((entry, idx) => {
-    const { temp } = entry.main;
-    const date = new Date(entry.dt * 1000);
-
-    let hour = date.getHours();
-    hour = hour > 12 ? hour - 12 + ' pm' : hour + ' am';
-
-    return (
-      <div className="hour" key={idx}>
-        {hour} - {Math.round(temp)} degrees
-      </div>
-    );
-  });
-
-  return (
-    <div className="forecast-card">
-      <div className="day">{day}</div>
-      <div className="hours">{hours}</div>
     </div>
   );
 };

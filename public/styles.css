@@ -1,5 +1,11 @@
 #app {
-  margin-top: 6vh;
+  margin-top: 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  /* text-align: center; */
+  /* min-height: 100vh; */
 }
 
 .forecast {
