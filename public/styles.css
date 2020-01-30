@@ -1,3 +1,21 @@
+/* body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+
 #app {
   margin-top: 4vh;
   display: flex;
@@ -12,4 +30,44 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  85% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.forecast-card {
+  margin: 20px;
+  animation: FadeIn 0.4s linear;
+  animation-fill-mode: both;
+}
+
+.forecast-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.forecast-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.forecast-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.forecast-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.forecast-card:nth-child(5) {
+  animation-delay: 1s;
+}
+.forecast-card:nth-child(6) {
+  animation-delay: 1.2s;
 }

@@ -7,7 +7,11 @@ import axios from 'axios';
 
 const App = () => {
   const [zip, setZip] = useState(91006);
-  const [day, setDay] = useState({});
+  const [day, setDay] = useState({
+    main: { temp: 79 },
+    weather: [{ description: 'placeholder' }],
+    sys: { sunrise: 1580310000 }
+  });
   const [forecast, setForecast] = useState([]);
 
   const fetch = () => {

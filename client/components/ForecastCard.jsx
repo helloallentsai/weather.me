@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const ForecastCard = props => {
   const { day } = props;
@@ -8,17 +9,16 @@ const ForecastCard = props => {
 
   const hours = props.hours.map((entry, idx) => {
     const { temp, temp_min, temp_max } = entry.main;
+    const { description } = entry.weather[0];
     low = Math.min(low, temp_min);
     high = Math.max(high, temp_max);
 
-    const date = new Date(entry.dt * 1000);
-
-    let hour = date.getHours();
-    hour = hour > 12 ? hour - 12 + ' pm' : hour + ' am';
+    const hour = moment.unix(entry.dt).format('hA');
 
     return (
       <div className="hour" key={idx}>
         {hour} - {Math.round(temp)} degrees
+        <div>{description}</div>
       </div>
     );
   });
@@ -28,9 +28,12 @@ const ForecastCard = props => {
 
   return (
     <div className="forecast-card">
-      <div className="day">{day}</div>
+      <div className="day" onClick={() => {}}>
+        {day}
+      </div>
       <div className="high">{high}</div>
       <div className="low">{low}</div>
+
       <div className="hours">{hours}</div>
     </div>
   );
