@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.use(express.static('public'));
-app.get('*', (req, res) => {
+app.use('*', (req, res) => {
   res.sendFile('index.html', { root: './public/' });
 });
 

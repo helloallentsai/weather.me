@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 
 const Nav = ({ setZip }) => {
   const handleSubmit = e => {
@@ -12,7 +11,7 @@ const Nav = ({ setZip }) => {
   return (
     <div className="container-sm">
       <nav className="navbar navbar-light bg-light">
-        WeatherMe
+        <a href="/">WeatherMe</a>
         <ul className="nav justify-content-end">
           <form className="form-inline" onSubmit={handleSubmit}>
             <input
@@ -29,12 +28,6 @@ const Nav = ({ setZip }) => {
               submit
             </button>
           </form>
-          <li className="nav-item">
-            <NavLink to="/">Day</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/forecast">Forecast</NavLink>
-          </li>
         </ul>
       </nav>
     </div>

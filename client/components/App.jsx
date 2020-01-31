@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import Nav from './Nav';
 import Day from './Day';
 import Forecast from './Forecast';
@@ -33,20 +33,11 @@ const App = () => {
   }, [zip]);
 
   return (
-    <Router>
-      <div className="container">
-        <Nav setZip={setZip} />
-
-        <Switch>
-          <Route path="/" exact>
-            <Day day={day} />
-          </Route>
-          <Route path="/forecast">
-            <Forecast forecast={forecast} />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <div className="container">
+      <Nav setZip={setZip} />
+      <Day day={day} />
+      <Forecast forecast={forecast} />
+    </div>
   );
 };
 

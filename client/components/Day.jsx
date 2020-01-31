@@ -9,9 +9,9 @@ const Day = props => {
   const sunset = moment.unix(sys.sunset).format('h:mma');
 
   return (
-    <div className="container">
+    <div className="container-day">
       <div className="name">{name}</div>
-      <div className="temp">Temp: {Math.round(main.temp)}</div>
+      <div className="temp">{Math.round(main.temp)}°</div>
       <div className="feels-like">
         Feels like: {Math.round(main.feels_like)}
       </div>

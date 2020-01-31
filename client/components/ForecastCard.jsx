@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 
 const ForecastCard = props => {
@@ -26,15 +26,19 @@ const ForecastCard = props => {
   high = Math.round(high);
   low = Math.round(low);
 
-  return (
-    <div className="forecast-card">
-      <div className="day" onClick={() => {}}>
-        {day}
-      </div>
-      <div className="high">{high}</div>
-      <div className="low">{low}</div>
+  const [toggle, setToggle] = useState(false);
 
-      <div className="hours">{hours}</div>
+  return (
+    <div
+      className="forecast-card"
+      onClick={() => {
+        setToggle(!toggle);
+      }}
+    >
+      <div className="day">{day}</div>
+      <span className="high">H: {high}</span>{' '}
+      <span className="low">L: {low}</span>
+      {toggle && <div className="hours">{hours}</div>}
     </div>
   );
 };
