@@ -1,15 +1,6 @@
 a {
   text-decoration: none !important;
 }
-/*
-body,
-html {
-  background: linear-gradient(-45deg, #dce4fd, #d3d8f5, #abdcee, #c5e0da);
-  background-size: 400% 400%;
-  animation: gradient 30s ease infinite;
-  height: 100vh;
-  color: #f9fbf2;
-} */
 
 @keyframes gradient {
   0% {
@@ -33,7 +24,9 @@ body {
 }
 
 #app {
-  margin-top: 4vh;
+  top: 0px;
+  height: 100vh;
+  /* margin-top: 4vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
