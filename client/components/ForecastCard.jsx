@@ -16,20 +16,8 @@ const ForecastCard = props => {
     const hour = moment.unix(entry.dt).format('h a');
 
     let icon = description.split(' ').join('_');
-
-    const night = [
-      '7pm',
-      '8pm',
-      '9pm',
-      '10pm',
-      '11pm',
-      '12am',
-      '1am',
-      '2am',
-      '3am',
-      '4am',
-      '5am'
-    ];
+    console.log(icon);
+    const night = ['7pm', '10pm', '1am', '4am'];
     const search = hour.split(' ').join('');
 
     if (night.indexOf(search) !== -1 && icon === 'clear_sky') {
@@ -39,9 +27,12 @@ const ForecastCard = props => {
     }
 
     return (
-      <div className="hour" key={idx}>
-        <img className="hour-icon" src={`./assets/${icon}.png`}></img>
-        {Math.round(temp)}° {hour}
+      <div className="hour-container" key={idx}>
+        <span className="hour">{hour}</span>
+        <span>
+          <img className="hour-icon" src={`./assets/${icon}.png`}></img>
+          {Math.round(temp)}°
+        </span>{' '}
       </div>
     );
   });
@@ -49,18 +40,18 @@ const ForecastCard = props => {
   high = Math.round(high);
   low = Math.round(low);
 
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
   return (
     <div
       className="forecast-card"
-      onClick={() => {
-        setToggle(!toggle);
-      }}
+      // onClick={() => {
+      //   setToggle(!toggle);
+      // }}
     >
       <div className="day">{day}</div>
-      <span className="high">H: {high}</span>{' '}
-      <span className="low">L: {low}</span>
+      <span className="high">H: {high}°</span>{' '}
+      <span className="low">L: {low}°</span>
       {toggle && <div className="hours">{hours}</div>}
     </div>
   );

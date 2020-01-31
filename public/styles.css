@@ -1,3 +1,7 @@
+a {
+  text-decoration: none !important;
+}
+/*
 body,
 html {
   background: linear-gradient(-45deg, #dce4fd, #d3d8f5, #abdcee, #c5e0da);
@@ -5,7 +9,7 @@ html {
   animation: gradient 30s ease infinite;
   height: 100vh;
   color: #f9fbf2;
-}
+} */
 
 @keyframes gradient {
   0% {
@@ -19,14 +23,14 @@ html {
   }
 }
 
-/* body,
-html {
+body {
   background-image: url('https://source.unsplash.com/random/1920%C3%971200/?nature');
   width: 100vw;
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
-} */
+  color: #f9fbf2;
+}
 
 #app {
   margin-top: 4vh;
@@ -38,22 +42,29 @@ html {
   min-height: 80vh; */
 }
 
-.container-day {
+.day-container {
   background-color: #0e1c36;
+  /* opacity: 0.9; */
   text-align: center;
   padding: 20px;
   animation: FadeIn 0.4s cubic-bezier(0.47, 0, 0.745, 0.715);
   animation-delay: 0.1s;
   display: grid;
   grid-template-areas:
-    'name date . .'
-    'temp temp big-icon big-icon'
-    'temp temp descript descript'
-    'feels-like . sunrise sunset';
+    'temp big-icon'
+    'name descript';
+  border-radius: 10px;
+  /* border: 1px solid #abdcee; */
+  margin-top: 5px;
+}
+
+.day-container:hover {
+  opacity: 1;
 }
 
 .name {
   grid-area: name;
+  font-size: 1.5rem;
 }
 
 .temp {
@@ -64,22 +75,6 @@ html {
 .weather {
   grid-area: descript;
   font-size: 2rem;
-}
-
-.date {
-  grid-area: date;
-}
-
-.sunrise {
-  grid-area: sunrise;
-}
-
-.sunset {
-  grid-area: sunset;
-}
-
-.feels-like {
-  grid-area: feels-like;
 }
 
 .icon-container {
@@ -121,8 +116,22 @@ html {
   animation: FadeIn 0.4s cubic-bezier(0.47, 0, 0.745, 0.715);
   animation-fill-mode: both;
   background-color: #0e1c36;
+  opacity: 0.9;
   padding: 10px;
   width: 100vw;
+  border-radius: 10px;
+  margin: 2px;
+}
+
+.forecast-card:hover {
+  /* margin: 5px; */
+  opacity: 1;
+}
+
+.day,
+.high,
+.low {
+  font-size: 0.9rem;
 }
 
 .forecast-card:nth-child(1) {
@@ -162,14 +171,36 @@ html {
 
 .navbar {
   animation: FadeRight 0.4s cubic-bezier(0.47, 0, 0.745, 0.715);
+  opacity: 0.9 !important;
 }
 
 .hours {
   animation: FadeIn 0.4s cubic-bezier(0.47, 0, 0.745, 0.715);
+  font-size: 0.9rem;
 }
 
 .hour-icon {
-  width: 18px;
-  height: 18px;
-  margin: 4px;
+  width: 15px;
+  height: 15px;
+  margin: 6px;
 }
+
+#weather {
+  font-size: 2rem;
+  font-family: 'Kaushan Script', cursive;
+  color: #0b2f74;
+}
+
+#me {
+  color: #f4862c;
+}
+
+.hour-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* .hour {
+  margin-left: 16px;
+  text-align: right;
+} */
