@@ -13,12 +13,35 @@ const ForecastCard = props => {
     low = Math.min(low, temp_min);
     high = Math.max(high, temp_max);
 
-    const hour = moment.unix(entry.dt).format('hA');
+    const hour = moment.unix(entry.dt).format('h a');
+
+    let icon = description.split(' ').join('_');
+
+    const night = [
+      '7pm',
+      '8pm',
+      '9pm',
+      '10pm',
+      '11pm',
+      '12am',
+      '1am',
+      '2am',
+      '3am',
+      '4am',
+      '5am'
+    ];
+    const search = hour.split(' ').join('');
+
+    if (night.indexOf(search) !== -1 && icon === 'clear_sky') {
+      icon = 'clear_sky_night';
+    } else if (night.indexOf(search) !== -1) {
+      icon = 'night';
+    }
 
     return (
       <div className="hour" key={idx}>
-        {hour} - {Math.round(temp)} degrees
-        <div>{description}</div>
+        <img className="hour-icon" src={`./assets/${icon}.png`}></img>
+        {Math.round(temp)}° {hour}
       </div>
     );
   });

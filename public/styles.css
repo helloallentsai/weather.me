@@ -33,9 +33,9 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center;
   text-align: center;
-  min-height: 80vh;
+  min-height: 80vh; */
 }
 
 .container-day {
@@ -47,7 +47,7 @@ html {
   display: grid;
   grid-template-areas:
     'name date . .'
-    'temp temp . .'
+    'temp temp big-icon big-icon'
     'temp temp descript descript'
     'feels-like . sunrise sunset';
 }
@@ -80,6 +80,18 @@ html {
 
 .feels-like {
   grid-area: feels-like;
+}
+
+.icon-container {
+  grid-area: big-icon;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 150px;
+  height: 150px;
 }
 
 .forecast {
@@ -154,4 +166,10 @@ html {
 
 .hours {
   animation: FadeIn 0.4s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+.hour-icon {
+  width: 18px;
+  height: 18px;
+  margin: 4px;
 }
